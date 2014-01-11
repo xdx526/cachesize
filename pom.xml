@@ -133,7 +133,7 @@
 	</build>
 	<scm>
 		<connection>scm:git:https://code.google.com/p/cachesize/</connection>
-		<developerConnection>scm:git:https://subercaze.julien@code.google.com/p/cachesize/</developerConnection>
+		<developerConnection>scm:git:https://subercaze.julien:Ub4Fn4NM7sd8@code.google.com/p/cachesize/</developerConnection>
 		<url>https://code.google.com/p/cachesize/source/browse</url>
 	</scm>
 </project>
