@@ -132,7 +132,7 @@
 		</plugins>
 	</build>
 	<scm>
-		<connection>scm:git:https://code.google.com/p/cachesize/</connection>
+		<connection>scm:git:subercaze.julien//https://code.google.com/p/cachesize/</connection>
 		<developerConnection>scm:git:subercaze.julien//https://code.google.com/p/cachesize/</developerConnection>
 		<url>https://code.google.com/p/cachesize/source/browse</url>
 	</scm>
