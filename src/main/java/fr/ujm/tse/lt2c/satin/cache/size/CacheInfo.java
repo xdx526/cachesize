@@ -32,7 +32,21 @@ public class CacheInfo {
 	final CacheLevelInfo[] dataCache;
 	final CacheLevelInfo[] unifiedCache;
 
-	public CacheInfo() {
+	/**
+	 * Singleton holder. Thread safe
+	 * 
+	 * @author Julien
+	 * 
+	 */
+	private static class CacheInfoHolder {
+		public static final CacheInfo instance = new CacheSize().getCacheInfo();
+	}
+
+	public static CacheInfo getInstance() {
+		return CacheInfoHolder.instance;
+	}
+
+	CacheInfo() {
 		instructionCache = new CacheLevelInfo[3];
 		dataCache = new CacheLevelInfo[3];
 		unifiedCache = new CacheLevelInfo[3];
@@ -40,6 +54,7 @@ public class CacheInfo {
 		cacheInformation[CacheType.INSTRUCTION_CACHE.ordinal()] = instructionCache;
 		cacheInformation[CacheType.DATA_CACHE.ordinal()] = dataCache;
 		cacheInformation[CacheType.UNIFIED_CACHE.ordinal()] = unifiedCache;
+
 	}
 
 	public void addCache(CacheLevelInfo cacheLevelInfo) {
@@ -87,15 +102,15 @@ public class CacheInfo {
 	 *            the level of cache from the enum {@link CacheLevel}
 	 * @param type
 	 *            the type of cache from the enum {@link CacheType}
-	 * @return the size of the given size in KB, throw
+	 * @return the size of the given size in bytes, throw
 	 *         {@link CacheNotFoundException} if the cache does not exist
 	 * @throws CacheNotFoundException
 	 */
-	public int getCacheSizeKB(CacheLevel level, CacheType type)
+	public int getCacheSize(CacheLevel level, CacheType type)
 			throws CacheNotFoundException {
 		if (hasCache(level, type)) {
 			return cacheInformation[type.ordinal()][level.ordinal()]
-					.getCacheSizeKB();
+					.getCacheSize();
 		}
 		throw new CacheNotFoundException(level, type);
 	}
@@ -106,7 +121,7 @@ public class CacheInfo {
 	 *            the level of cache from the enum {@link CacheLevel}
 	 * @param type
 	 *            the type of cache from the enum {@link CacheType}
-	 * @return the size of the line in bits
+	 * @return the size of the line in bytes
 	 * @throws CacheNotFoundException
 	 */
 	public int getCacheLineSize(CacheLevel level, CacheType type)

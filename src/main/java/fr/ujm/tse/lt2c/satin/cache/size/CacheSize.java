@@ -36,17 +36,16 @@ public class CacheSize {
 	 * @return information regarding the CPU cache
 	 * @throws NativeCPUInfoException
 	 */
-	public CacheInfo getCacheInfo() throws NativeCPUInfoException {
+	protected CacheInfo getCacheInfo() {
 		int[] result = null;
 		try {
 			result = getCPUCacheInfo();
 		} catch (Exception e) {
-			throw new NativeCPUInfoException();
+			return null;
 		}
 		CacheInfo cacheInfo = new CacheInfo();
-		// System.out.println(Arrays.toString(result));
 		if (result == null)
-			throw new NativeCPUInfoException();
+			return null;
 		boolean parse = true;
 		// int[] is structured as 10 values per cache level, documentation is to
 		// be found in the original C source
@@ -69,7 +68,7 @@ public class CacheSize {
 			i++;
 		}
 		if (parsed == 0) {
-			throw new NativeCPUInfoException();
+			return null;
 		}
 		return cacheInfo;
 	}

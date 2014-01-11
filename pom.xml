@@ -1,11 +1,18 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>fr.ujm.tse.lt2c.satin</groupId>
 	<artifactId>cachesize</artifactId>
-	<version>0.1</version>
+	<version>0.2</version>
 	<name>CPU Cache size</name>
 	<url>https://code.google.com/p/cachesize/</url>
+	<description>
+	CacheSize makes low level cache information available : cache levels, type, size and other properties. 
+	</description>
+	<parent>
+		<groupId>org.sonatype.oss</groupId>
+		<artifactId>oss-parent</artifactId>
+		<version>7</version>
+	</parent>
 	<licenses>
 		<license>
 			<name>The Apache Software License, Version 2.0</name>
@@ -68,7 +75,7 @@
 				<executions>
 					<execution>
 						<id>sign-artifacts</id>
-						<phase>deploy</phase>
+						<phase>verify</phase>
 						<goals>
 							<goal>sign</goal>
 						</goals>
@@ -127,6 +134,6 @@
 	<scm>
 		<connection>scm:git:https://code.google.com/p/cachesize/</connection>
 		<developerConnection>scm:git:https://code.google.com/p/cachesize/</developerConnection>
-		<url>https://code.google.com/p/cachesize/</url>
+		<url>https://code.google.com/p/cachesize/source/browse</url>
 	</scm>
 </project>

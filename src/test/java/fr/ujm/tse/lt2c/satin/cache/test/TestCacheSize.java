@@ -3,8 +3,6 @@ package fr.ujm.tse.lt2c.satin.cache.test;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.fail;
 
-import java.util.Arrays;
-
 import org.junit.Test;
 
 import fr.ujm.tse.lt2c.satin.cache.size.CacheInfo;
@@ -22,8 +20,7 @@ public class TestCacheSize {
 	@Test
 	public void test() {
 		try {
-			CacheSize cs = new CacheSize();
-			CacheInfo cache = cs.getCacheInfo();
+			CacheInfo cache = CacheInfo.getInstance();
 			assertNotNull(cache);
 		} catch (Exception e) {
 			fail("Error processing the CPU information " + e.getMessage());

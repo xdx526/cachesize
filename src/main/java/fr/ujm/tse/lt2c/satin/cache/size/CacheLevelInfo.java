@@ -95,10 +95,10 @@ public class CacheLevelInfo {
 
 	/**
 	 * 
-	 * @return the size of the cache in KB
+	 * @return the size of the cache in bytes
 	 */
-	public int getCacheSizeKB() {
-		return totalSizeInBytes / 1024;
+	public int getCacheSize() {
+		return totalSizeInBytes;
 	}
 
 	@Override

@@ -17,12 +17,15 @@ public class Helper {
 
 	public static void main(String[] args) throws NativeCPUInfoException,
 			CacheNotFoundException {
-		CacheSize size = new CacheSize();
-		CacheInfo info = size.getCacheInfo();
+		CacheInfo info = CacheInfo.getInstance();
 		System.out.println(info);
-		System.out.println(info.getCacheSizeKB(CacheLevel.L1,
+		System.out.println(info.getCacheSize(CacheLevel.L1,
 				CacheType.INSTRUCTION_CACHE));
-		System.out.println(info.getCacheSizeKB(CacheLevel.L2,
+		System.out.println(info.getCacheLineSize(CacheLevel.L1,
+				CacheType.INSTRUCTION_CACHE));
+		System.out.println(info.getCacheSize(CacheLevel.L2,
+				CacheType.UNIFIED_CACHE));
+		System.out.println(info.getCacheSize(CacheLevel.L3,
 				CacheType.UNIFIED_CACHE));
 	}
 }
