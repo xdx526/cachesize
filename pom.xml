@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>fr.ujm.tse.lt2c.satin</groupId>
 	<artifactId>cachesize</artifactId>
-	<version>0.2</version>
+	<version>0.2.1</version>
 	<name>CPU Cache size</name>
 	<url>https://code.google.com/p/cachesize/</url>
 	<description>
